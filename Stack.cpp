@@ -28,6 +28,7 @@ void push(Stack& stack, int new_key){
     stack.TAIL->next = new_tail_ref;
     stack.TAIL->next->next = stack.NIL;
     stack.TAIL->next->key = new_key;
+    stack.TAIL = new_tail_ref;
     return;
 }
 
@@ -57,6 +58,3 @@ bool empty(Stack& stack){
     return !(stack.size);
 }
 
-int main() {
-  return 0;
-}
