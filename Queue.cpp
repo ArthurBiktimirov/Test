@@ -6,7 +6,7 @@ struct Node {
 };
 
 struct Queue {
-  size_t size;
+  size_t size = 0;
   Node *HEAD = nullptr;
   Node *TAIL = nullptr;
   Node *NIL = nullptr;
