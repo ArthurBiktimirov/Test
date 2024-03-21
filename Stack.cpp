@@ -3,42 +3,45 @@ struct Node {
     Node* next = nullptr;
 };
 struct Stack {
-    Node* NILL = new Node;
-    Node* HEAD = NILL;
+    Node* NIL = nullptr;
+    Node* HEAD = NIL;
     Node* TAIL = HEAD;
-    int size_ = 0;
+    int size = 0;
 };
 Stack* create_empty_stack(){
-    Stack* stack = new Stack;
+    Stack *stack = new Stack;
+    stack->NIL = new Node;
+    stack->HEAD = stack->NIL;
+    stack->TAIL = stack->NIL;
     return stack;
 }
 void push(Stack& stack, int new_key){
     Node* new_tail_ref = new Node;
-    stack.size_ = stack.size_ + 1;
-    if (stack.HEAD == stack.NILL){
+    stack.size = stack.size + 1;
+    if (stack.HEAD == stack.NIL){
         stack.HEAD = new_tail_ref;
         stack.TAIL = new_tail_ref;
-        stack.HEAD->next = stack.NILL;
+        stack.HEAD->next = stack.NIL;
         stack.HEAD->key = new_key;
         return;
     }
     stack.TAIL->next = new_tail_ref;
-    stack.TAIL->next->next = stack.NILL;
+    stack.TAIL->next->next = stack.NIL;
     stack.TAIL->next->key = new_key;
     return;
 }
 
 void pop(Stack& stack){
-    if (stack.HEAD == stack.NILL){
+    if (stack.HEAD == stack.NIL){
         return;
     }
-    stack.size_ = stack.size_ - 1;
+    stack.size = stack.size - 1;
     Node* ref = stack.HEAD;
-    while (ref->next != stack.NILL){
+    while (ref->next != stack.NIL){
         ref = ref->next;
     }
     delete ref->next;
-    ref->next = stack.NILL;
+    ref->next = stack.NIL;
     return;
 }
 
@@ -47,11 +50,11 @@ Node* top(Stack& stack){
 }
 
 int size(Stack& stack){
-    return stack.size_;
+    return stack.size;
 }
 
 bool empty(Stack& stack){
-    return !(stack.size_);
+    return !(stack.size);
 }
 
 int main() {
