@@ -2,6 +2,7 @@ struct Node {
     int key = 0;
     Node* next = nullptr;
 };
+
 struct Stack {
     Node* NIL = nullptr;
     Node* HEAD = NIL;
