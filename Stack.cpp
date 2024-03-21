@@ -8,7 +8,10 @@ struct Stack {
     Node* TAIL = HEAD;
     int size_ = 0;
 };
-
+Stack* create_empty_stack(){
+    Stack* stack = new Stack;
+    return stack;
+}
 void push(Stack& stack, int new_key){
     Node* new_tail_ref = new Node;
     stack.size_ = stack.size_ + 1;
